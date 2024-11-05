@@ -1,0 +1,17 @@
+Running script with arguments: Namespace(input_channels=44, input_size=[16, 16], modality='hyper', num_classes=3, test_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/hardwood_vs_softwood/vis/test'], train_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/hardwood_vs_softwood/vis/train'])
+Traceback (most recent call last):
+  File "/mmfs1/gscratch/stf/upanpra/AK_train_scripts/train_script_parameterized.py", line 151, in <module>
+    main()
+  File "/mmfs1/gscratch/stf/upanpra/AK_train_scripts/train_script_parameterized.py", line 54, in main
+    mean, std = get_mean_std(train_folder, modality=args.modality)
+  File "/mmfs1/gscratch/stf/upanpra/src/functions.py", line 47, in get_mean_std
+    trainset = datasets.ImageFolder(train_folder, loader=my_tiff_loader, transform=transform)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 310, in __init__
+    super().__init__(
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 145, in __init__
+    classes, class_to_idx = self.find_classes(self.root)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 219, in find_classes
+    return find_classes(directory)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 41, in find_classes
+    classes = sorted(entry.name for entry in os.scandir(directory) if entry.is_dir())
+TypeError: scandir: path should be string, bytes, os.PathLike, integer or None, not list

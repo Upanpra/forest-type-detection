@@ -1,0 +1,230 @@
+Running script with arguments: Namespace(input_channels=1, input_size=[16, 16], modality='chm', num_classes=3, test_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/hardwood_vs_softwood/chm/test'], train_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/hardwood_vs_softwood/chm/train'])
+tensor([2.2436])
+tensor([1.7827])
+Saving model to: /mmfs1/gscratch/stf/upanpra/model_checkpointsAK/best-test-model-VisDroughtCNN-1700283111.147776.pt
+DroughtCNN(
+  (conv1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv3): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc1): Linear(in_features=512, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=84, bias=True)
+  (fc3): Linear(in_features=84, out_features=4, bias=True)
+)
+28338051.852665387
+Epoch [1/100], Step [100/178], Loss: 1.0644
+Epoch [1/100], Train Acc 71.52%, Test Acc 75.66%
+Epoch [2/100], Step [100/178], Loss: 0.5396
+Epoch [2/100], Train Acc 73.61%, Test Acc 76.90%
+Epoch [3/100], Step [100/178], Loss: 0.5645
+Epoch [3/100], Train Acc 73.82%, Test Acc 78.70%
+Epoch [4/100], Step [100/178], Loss: 1.1909
+Epoch [4/100], Train Acc 73.43%, Test Acc 79.11%
+Epoch [5/100], Step [100/178], Loss: 0.3350
+Epoch [5/100], Train Acc 74.38%, Test Acc 77.87%
+Epoch [6/100], Step [100/178], Loss: 0.6114
+Epoch [6/100], Train Acc 75.58%, Test Acc 78.84%
+Epoch [7/100], Step [100/178], Loss: 0.6812
+Epoch [7/100], Train Acc 75.30%, Test Acc 79.25%
+Epoch [8/100], Step [100/178], Loss: 0.8634
+Epoch [8/100], Train Acc 75.26%, Test Acc 77.04%
+Epoch [9/100], Step [100/178], Loss: 0.4754
+Epoch [9/100], Train Acc 75.55%, Test Acc 77.04%
+Epoch [10/100], Step [100/178], Loss: 0.7039
+Epoch [10/100], Train Acc 75.02%, Test Acc 77.32%
+Epoch [11/100], Step [100/178], Loss: 0.2724
+Epoch [11/100], Train Acc 75.34%, Test Acc 78.70%
+Epoch [12/100], Step [100/178], Loss: 0.6773
+Epoch [12/100], Train Acc 74.14%, Test Acc 75.24%
+Epoch [13/100], Step [100/178], Loss: 1.0072
+Epoch [13/100], Train Acc 75.51%, Test Acc 77.18%
+Epoch [14/100], Step [100/178], Loss: 0.6153
+Epoch [14/100], Train Acc 76.01%, Test Acc 77.18%
+Epoch [15/100], Step [100/178], Loss: 0.4945
+Epoch [15/100], Train Acc 76.78%, Test Acc 76.07%
+Epoch [16/100], Step [100/178], Loss: 0.5810
+Epoch [16/100], Train Acc 77.06%, Test Acc 74.83%
+Epoch [17/100], Step [100/178], Loss: 0.5665
+Epoch [17/100], Train Acc 77.66%, Test Acc 76.90%
+Epoch [18/100], Step [100/178], Loss: 0.5015
+Epoch [18/100], Train Acc 77.49%, Test Acc 73.86%
+Epoch [19/100], Step [100/178], Loss: 0.5270
+Epoch [19/100], Train Acc 77.28%, Test Acc 77.04%
+Epoch [20/100], Step [100/178], Loss: 0.4528
+Epoch [20/100], Train Acc 76.85%, Test Acc 77.32%
+Epoch [21/100], Step [100/178], Loss: 0.9866
+Epoch [21/100], Train Acc 78.30%, Test Acc 76.07%
+Epoch [22/100], Step [100/178], Loss: 0.2685
+Epoch [22/100], Train Acc 76.78%, Test Acc 75.10%
+Epoch [23/100], Step [100/178], Loss: 1.0788
+Epoch [23/100], Train Acc 75.83%, Test Acc 75.80%
+Epoch [24/100], Step [100/178], Loss: 0.5016
+Epoch [24/100], Train Acc 78.83%, Test Acc 74.27%
+Epoch [25/100], Step [100/178], Loss: 0.5020
+Epoch [25/100], Train Acc 79.25%, Test Acc 76.35%
+Epoch [26/100], Step [100/178], Loss: 0.7757
+Epoch [26/100], Train Acc 79.39%, Test Acc 77.32%
+Epoch [27/100], Step [100/178], Loss: 0.4038
+Epoch [27/100], Train Acc 80.84%, Test Acc 75.80%
+Epoch [28/100], Step [100/178], Loss: 0.2617
+Epoch [28/100], Train Acc 81.72%, Test Acc 74.41%
+Epoch [29/100], Step [100/178], Loss: 0.5706
+Epoch [29/100], Train Acc 78.69%, Test Acc 74.41%
+Epoch [30/100], Step [100/178], Loss: 0.2757
+Epoch [30/100], Train Acc 80.73%, Test Acc 78.84%
+Epoch [31/100], Step [100/178], Loss: 0.5487
+Epoch [31/100], Train Acc 83.13%, Test Acc 74.55%
+Epoch [32/100], Step [100/178], Loss: 0.4267
+Epoch [32/100], Train Acc 81.05%, Test Acc 77.73%
+Epoch [33/100], Step [100/178], Loss: 0.8659
+Epoch [33/100], Train Acc 84.97%, Test Acc 77.46%
+Epoch [34/100], Step [100/178], Loss: 0.1729
+Epoch [34/100], Train Acc 85.57%, Test Acc 71.65%
+Epoch [35/100], Step [100/178], Loss: 0.5051
+Epoch [35/100], Train Acc 84.44%, Test Acc 77.87%
+Epoch [36/100], Step [100/178], Loss: 0.6541
+Epoch [36/100], Train Acc 62.53%, Test Acc 55.46%
+Epoch [37/100], Step [100/178], Loss: 0.1015
+Epoch [37/100], Train Acc 84.30%, Test Acc 73.86%
+Epoch [38/100], Step [100/178], Loss: 0.3193
+Epoch [38/100], Train Acc 85.82%, Test Acc 73.31%
+Epoch [39/100], Step [100/178], Loss: 0.5728
+Epoch [39/100], Train Acc 85.74%, Test Acc 73.03%
+Epoch [40/100], Step [100/178], Loss: 0.2223
+Epoch [40/100], Train Acc 88.74%, Test Acc 74.83%
+Epoch [41/100], Step [100/178], Loss: 0.3206
+Epoch [41/100], Train Acc 87.72%, Test Acc 70.26%
+Epoch [42/100], Step [100/178], Loss: 0.2613
+Epoch [42/100], Train Acc 88.57%, Test Acc 75.66%
+Epoch [43/100], Step [100/178], Loss: 0.2233
+Epoch [43/100], Train Acc 88.11%, Test Acc 74.41%
+Epoch [44/100], Step [100/178], Loss: 0.3058
+Epoch [44/100], Train Acc 86.41%, Test Acc 66.94%
+Epoch [45/100], Step [100/178], Loss: 0.0950
+Epoch [45/100], Train Acc 89.77%, Test Acc 71.23%
+Epoch [46/100], Step [100/178], Loss: 0.1233
+Epoch [46/100], Train Acc 87.33%, Test Acc 76.63%
+Epoch [47/100], Step [100/178], Loss: 0.2291
+Epoch [47/100], Train Acc 91.18%, Test Acc 70.40%
+Epoch [48/100], Step [100/178], Loss: 0.2617
+Epoch [48/100], Train Acc 90.93%, Test Acc 74.14%
+Epoch [49/100], Step [100/178], Loss: 0.2576
+Epoch [49/100], Train Acc 90.54%, Test Acc 69.16%
+Epoch [50/100], Step [100/178], Loss: 0.0558
+Epoch [50/100], Train Acc 90.65%, Test Acc 75.93%
+Epoch [51/100], Step [100/178], Loss: 0.1133
+Epoch [51/100], Train Acc 92.94%, Test Acc 73.58%
+Epoch [52/100], Step [100/178], Loss: 0.3684
+Epoch [52/100], Train Acc 88.53%, Test Acc 65.84%
+Epoch [53/100], Step [100/178], Loss: 0.4285
+Epoch [53/100], Train Acc 90.05%, Test Acc 65.98%
+Epoch [54/100], Step [100/178], Loss: 0.2774
+Epoch [54/100], Train Acc 91.74%, Test Acc 77.32%
+Epoch [55/100], Step [100/178], Loss: 0.0262
+Epoch [55/100], Train Acc 94.21%, Test Acc 74.00%
+Epoch [56/100], Step [100/178], Loss: 0.3918
+Epoch [56/100], Train Acc 93.90%, Test Acc 73.86%
+Epoch [57/100], Step [100/178], Loss: 0.3007
+Epoch [57/100], Train Acc 95.13%, Test Acc 69.99%
+Epoch [58/100], Step [100/178], Loss: 0.2551
+Epoch [58/100], Train Acc 94.53%, Test Acc 74.14%
+Epoch [59/100], Step [100/178], Loss: 0.2432
+Epoch [59/100], Train Acc 93.68%, Test Acc 71.65%
+Epoch [60/100], Step [100/178], Loss: 0.1027
+Epoch [60/100], Train Acc 95.20%, Test Acc 72.75%
+Epoch [61/100], Step [100/178], Loss: 0.0688
+Epoch [61/100], Train Acc 95.24%, Test Acc 71.09%
+Epoch [62/100], Step [100/178], Loss: 0.1237
+Epoch [62/100], Train Acc 95.59%, Test Acc 70.54%
+Epoch [63/100], Step [100/178], Loss: 0.2726
+Epoch [63/100], Train Acc 94.00%, Test Acc 67.50%
+Epoch [64/100], Step [100/178], Loss: 0.2018
+Epoch [64/100], Train Acc 95.45%, Test Acc 71.78%
+Epoch [65/100], Step [100/178], Loss: 0.1357
+Epoch [65/100], Train Acc 96.01%, Test Acc 73.58%
+Epoch [66/100], Step [100/178], Loss: 0.1710
+Epoch [66/100], Train Acc 95.87%, Test Acc 69.57%
+Epoch [67/100], Step [100/178], Loss: 0.2891
+Epoch [67/100], Train Acc 96.15%, Test Acc 70.40%
+Epoch [68/100], Step [100/178], Loss: 0.5657
+Epoch [68/100], Train Acc 95.62%, Test Acc 71.51%
+Epoch [69/100], Step [100/178], Loss: 0.0364
+Epoch [69/100], Train Acc 96.15%, Test Acc 73.31%
+Epoch [70/100], Step [100/178], Loss: 0.3443
+Epoch [70/100], Train Acc 96.08%, Test Acc 71.78%
+Epoch [71/100], Step [100/178], Loss: 0.0488
+Epoch [71/100], Train Acc 96.51%, Test Acc 72.06%
+Epoch [72/100], Step [100/178], Loss: 0.0189
+Epoch [72/100], Train Acc 95.77%, Test Acc 74.69%
+Epoch [73/100], Step [100/178], Loss: 0.0879
+Epoch [73/100], Train Acc 96.61%, Test Acc 70.68%
+Epoch [74/100], Step [100/178], Loss: 0.0116
+Epoch [74/100], Train Acc 96.82%, Test Acc 72.20%
+Epoch [75/100], Step [100/178], Loss: 0.1179
+Epoch [75/100], Train Acc 97.28%, Test Acc 71.65%
+Epoch [76/100], Step [100/178], Loss: 0.1640
+Epoch [76/100], Train Acc 96.89%, Test Acc 70.68%
+Epoch [77/100], Step [100/178], Loss: 0.0695
+Epoch [77/100], Train Acc 97.14%, Test Acc 70.54%
+Epoch [78/100], Step [100/178], Loss: 0.2081
+Epoch [78/100], Train Acc 97.07%, Test Acc 71.92%
+Epoch [79/100], Step [100/178], Loss: 0.0493
+Epoch [79/100], Train Acc 97.07%, Test Acc 72.20%
+Epoch [80/100], Step [100/178], Loss: 0.0400
+Epoch [80/100], Train Acc 97.39%, Test Acc 70.12%
+Epoch [81/100], Step [100/178], Loss: 0.0378
+Epoch [81/100], Train Acc 97.49%, Test Acc 70.54%
+Epoch [82/100], Step [100/178], Loss: 0.0530
+Epoch [82/100], Train Acc 97.39%, Test Acc 71.23%
+Epoch [83/100], Step [100/178], Loss: 0.0514
+Epoch [83/100], Train Acc 97.00%, Test Acc 72.48%
+Epoch [84/100], Step [100/178], Loss: 0.0365
+Epoch [84/100], Train Acc 97.18%, Test Acc 71.78%
+Epoch [85/100], Step [100/178], Loss: 0.2539
+Epoch [85/100], Train Acc 97.60%, Test Acc 71.92%
+Epoch [86/100], Step [100/178], Loss: 0.0511
+Epoch [86/100], Train Acc 96.97%, Test Acc 71.92%
+Epoch [87/100], Step [100/178], Loss: 0.0251
+Epoch [87/100], Train Acc 97.57%, Test Acc 71.51%
+Epoch [88/100], Step [100/178], Loss: 0.0814
+Epoch [88/100], Train Acc 97.64%, Test Acc 73.31%
+Epoch [89/100], Step [100/178], Loss: 0.0365
+Epoch [89/100], Train Acc 97.67%, Test Acc 71.65%
+Epoch [90/100], Step [100/178], Loss: 0.0891
+Epoch [90/100], Train Acc 97.71%, Test Acc 71.37%
+Epoch [91/100], Step [100/178], Loss: 0.1163
+Epoch [91/100], Train Acc 97.67%, Test Acc 71.09%
+Epoch [92/100], Step [100/178], Loss: 0.0205
+Epoch [92/100], Train Acc 97.60%, Test Acc 70.40%
+Epoch [93/100], Step [100/178], Loss: 0.0226
+Epoch [93/100], Train Acc 97.14%, Test Acc 72.20%
+Epoch [94/100], Step [100/178], Loss: 0.1036
+Epoch [94/100], Train Acc 97.92%, Test Acc 70.82%
+Epoch [95/100], Step [100/178], Loss: 0.0246
+Epoch [95/100], Train Acc 97.64%, Test Acc 71.65%
+Epoch [96/100], Step [100/178], Loss: 0.0087
+Epoch [96/100], Train Acc 97.46%, Test Acc 72.48%
+Epoch [97/100], Step [100/178], Loss: 0.2007
+Epoch [97/100], Train Acc 97.53%, Test Acc 70.26%
+Epoch [98/100], Step [100/178], Loss: 0.1450
+Epoch [98/100], Train Acc 97.85%, Test Acc 71.09%
+Epoch [99/100], Step [100/178], Loss: 0.0582
+Epoch [99/100], Train Acc 97.57%, Test Acc 70.40%
+Epoch [100/100], Step [100/178], Loss: 0.0698
+Epoch [100/100], Train Acc 97.74%, Test Acc 69.71%
+1700283637.0415726
+ Elapsed time: 8.764694154262543 minutes
+ Elapsed time: 0.14607823590437571 hours
+1700283637.0415812
+Saved model to /mmfs1/gscratch/stf/upanpra/model_checkpointsAK/model-VIs-DroughtCNN-1700283111.147776.pt
+[[ 53   6  86]
+ [  9 167  20]
+ [ 70  22 290]]
+[[0.36551724 0.04137931 0.59310345]
+ [0.04591837 0.85204082 0.10204082]
+ [0.18324607 0.05759162 0.7591623 ]]
+[[0.40151515 0.03076923 0.21717172]
+ [0.06818182 0.85641026 0.05050505]
+ [0.53030303 0.11282051 0.73232323]]

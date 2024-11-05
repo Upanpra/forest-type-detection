@@ -1,0 +1,52 @@
+Running script with arguments: Namespace(input_channels=45, input_size=[16, 16], modality='hyper', num_classes=2, test_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/vis/test', '/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/chm/test', '/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/dtm/test'], train_folder=['/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/vis/train', '/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/chm/train', '/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/dtm/train'])
+tensor([ 1.2562e-03,  1.3985e+00,  1.6028e-01,  2.4955e-03,  3.7494e-03,
+         2.8645e-01,  2.5099e-01,  1.1617e-02,  5.8831e+07,  3.3747e-01,
+         1.0219e+00,  1.0250e+03,  9.9808e+02,  9.9124e+02,  4.0320e+00,
+         2.8061e+00,  1.4833e+00,  6.4246e-01,  1.7446e+00,  1.6011e+03,
+         7.6933e-01,  3.2335e-01,  2.9283e+00,  4.8720e+00,  1.6011e+03,
+         7.6933e-01,  6.7750e-01, -2.4416e-02,  1.6377e-01,  6.7740e-01,
+        -6.2431e-02,  1.1953e+00,  6.5289e-01,  4.6614e-02,  6.9420e+00,
+         6.5594e-01,  3.7715e-01,  7.0039e+02,  9.0422e-01,  7.1502e-01,
+         1.0462e+00,  6.0931e+04,  9.8067e-01,  1.4292e+00,  2.2561e+00,
+         5.7587e+02])
+tensor([4.4759e-04, 4.1323e-01, 7.3622e-02, 1.5093e-03, 1.7797e-03, 4.4453e-02,
+        4.2317e-02, 2.6169e-03, 2.6416e+07, 2.3929e-01, 2.5570e-01, 2.0371e+02,
+        1.9807e+02, 2.0060e+02, 5.4898e-01, 3.3441e-01, 1.8229e-01, 7.9600e-02,
+        4.5119e-01, 3.2198e+02, 4.8647e-02, 3.7990e-02, 5.6839e-01, 9.8143e-01,
+        3.2198e+02, 4.8648e-02, 5.0190e-02, 3.6721e-02, 6.9817e-02, 5.0186e-02,
+        1.5194e-02, 1.0199e-01, 4.9361e-02, 2.0211e-02, 1.3854e+00, 1.7766e-01,
+        3.9823e-02, 9.6311e+00, 5.9993e-02, 9.6525e-02, 3.0351e-01, 1.2431e+04,
+        2.1788e-01, 7.1990e-02, 1.7738e+00, 2.0725e+00])
+Saving model to: /mmfs1/gscratch/stf/upanpra/model_checkpointsAK/best-test-model-VisDroughtCNN-1700710939.1812294.pt
+shape of mean, torch.Size([46])
+shape of std, torch.Size([46])
+DroughtCNN(
+  (conv1): Conv2d(45, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv3): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc1): Linear(in_features=512, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=84, bias=True)
+  (fc3): Linear(in_features=84, out_features=4, bias=True)
+)
+28345182.320244737
+Traceback (most recent call last):
+  File "/mmfs1/gscratch/stf/upanpra/AK_train_scripts/train_script_parameterized.py", line 151, in <module>
+    main()
+  File "/mmfs1/gscratch/stf/upanpra/AK_train_scripts/train_script_parameterized.py", line 123, in main
+    net, train_history, test_history = trainCNN(net, train_loader, test_loader,
+  File "/mmfs1/gscratch/stf/upanpra/src/trainer.py", line 40, in trainCNN
+    outputs = net(images)               # Forward pass: compute the output class given a image
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mmfs1/gscratch/stf/upanpra/src/model.py", line 31, in forward
+    x = F.max_pool2d(F.relu(self.bn1(self.conv1(x))), kernel_size = 2, stride = 2)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 447, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mmfs1/home/upanpra/miniconda3/envs/deeplearningCuda/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 443, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [32, 45, 3, 3], expected input[16, 46, 16, 16] to have 45 channels, but got 46 channels instead
