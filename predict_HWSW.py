@@ -1,5 +1,4 @@
 from functools import partial
-
 from src.convnext import convnext_single_block_hyperspectral, convnext_single_block_hyperspectral_dropout, \
     convnext_minimal_hyperspectral, convnext_minimal_hyperspectral_dropout, \
     convnext_minimal_hyperspectral_final_layer_dropout
@@ -7,28 +6,15 @@ from src.minimal_cnn import min_cnn_dropout, min_cnn
 from src.model import DroughtCNN
 from src.predict.dataset import get_predict_loader
 from src.predict.predictor import predictCNN
-
 from src.functions import *
 from src.data_loader import transforms_aug
 import time
 import torch
-
 from src.predict.dataset import multi_image_data_loader
-# from src.resnet import resnet18
 
-#train_folder = "/mmfs1/gscratch/stf/upanpra/AK_data/Vis16/train_test/train_Vis16"
-#test_folder = "/mmfs1/gscratch/stf/upanpra/AK_data/Vis16//train_test/test_Vis16"
-
-
-# train_folder = "E:/AguAlaska/Vis16m/train_test/train_Vis16"
-# test_folder = "E:/AguAlaska/Vis16m/train_test/test_Vis16"
-train_folder = ['K:/2024/crops/16crops/train_test/hardwood_softwood/dtm/train/',
-                'K:/2024/crops/16crops/train_test/hardwood_softwood/chm/train/',
-                'K:/2024/crops/16crops/train_test/hardwood_softwood/vis/train/',
-                'K:/2024/crops/16crops/train_test/hardwood_softwood/slope/train/',
-                'K:/2024/crops/16crops/train_test/hardwood_softwood/sri/train/']
-
-
+# directory of your training data
+train_folder = [' data/train/vis',
+                'data/train/chm']
 
 means = []
 stds = []
@@ -56,21 +42,17 @@ BATCH_SIZE = 16           # Change to 16 or 32 The size of input data took for o
 LEARNING_RATE = 1e-3          # The speed of convergence
 
 #OUTPUT_FOLDER = "/mmfs1/gscratch/stf/upanpra/model_checkpoints/" # For Hyak
-#tiff_input_folder = "E:/AguAlaska/inference"
-#tiff_output_folder = "E:/AguAlaska/predictions"
 
-# prediction for test set
-tiff_input_folder = ['K:/2024/prediciton/unlabel_crops_matching/dtm/',
-                'K:/2024/prediciton/unlabel_crops_matching/chm/',
-                'K:/2024/prediciton/unlabel_crops_matching//vis/',
-                'K:/2024/prediciton/unlabel_crops_matching/slope/',
-                'K:/2024/prediciton/unlabel_crops_matching/sri/']
+# Prediction for inference area
+tiff_input_folder = ['data/unlabeled/vis',
+                'data/unlabeled/chm'] #directory of your unlabeled crops such as vis, chm, dtm
 
-tiff_output_folder = "K:/2024/prediciton/predict/hardwood/"
+tiff_output_folder = "data/prediction/hardwood-softwood-nonforest/" # directory of predicted files
+
 
 # Define model name
-model_name = "DroughtCNN" #resnet18
-model_path = "G:/repositories/Alaska_hyak/model_checkpoint/HWSWNF/model-HW_SW_DTM_CHM_VIs_SLp_SRI_32_NoDropout_Ep100-DroughtCNN-1708549249.1007981.pt"
+model_name = "DroughtCNN"
+model_path = "data/models/checkpoint/ "#path to saved model checkpoint
 
 # use transforms_aug function from data loader to do augmentation
 transform_train, transform_test = transforms_aug(INPUT_SIZE, mean, std)
@@ -90,7 +72,7 @@ all_models = {#"resnet18": partial(resnet18, input_channels=44),
 
 predict_loader = multi_image_data_loader(tiff_input_folder, INPUT_SIZE, BATCH_SIZE, mean, std)
 
-# calling cnn functions either resnet or droughtCNN
+# calling cnn functions 
 net = all_models[model_name]()
 net = load_model(net, model_path)
 print(net)
