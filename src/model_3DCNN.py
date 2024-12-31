@@ -3,9 +3,9 @@ import torch.nn.functional as F
 from typing import Tuple
 
 
-class DroughtCNN(nn.Module):
+class ForestCNN(nn.Module):
     def __init__(self, input_size: Tuple[int, int, int, int] = (3, 64, 64, 64), num_classes: int = 2):
-        super(DroughtCNN, self).__init__()
+        super(ForestCNN, self).__init__()
         self.num_classes = num_classes
 
         #  self.downsample_factor: int = 4  # Adjust as needed
@@ -33,13 +33,13 @@ class DroughtCNN(nn.Module):
 
     def forward(self, x):
         if self._print_input_shape_once:
-            print(f"DroughtCNN input shape {x.shape}")
+            print(f"ForestCNN input shape {x.shape}")
         if len(x.shape) == 4:
             # B, C, H, W
             x = x.unsqueeze(1)  # -> B, C, D, H, W
             # ( channels becomes depth so that we conv across channels)
         if self._print_input_shape_once:
-            print(f"DroughtCNN input shape after unsqueeze {x.shape}")
+            print(f"ForestCNN input shape after unsqueeze {x.shape}")
             self._print_input_shape_once = False
         x = F.max_pool3d(F.relu(self.bn1(self.conv1(x))), kernel_size=2, stride=2)
         x = F.max_pool3d(F.relu(self.bn2(self.conv2(x))), kernel_size=2, stride=2)
