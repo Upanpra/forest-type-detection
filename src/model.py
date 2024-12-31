@@ -5,9 +5,9 @@ from torch.nn import BatchNorm2d
 from typing import Tuple
 
 
-class DroughtCNN(nn.Module):
+class ForestCNN(nn.Module):
     def __init__(self, input_size: Tuple[int, int, int] = (3, 128, 128), num_classes: int = 2):
-        super(DroughtCNN, self).__init__()
+        super(ForestCNN, self).__init__()
         self.num_classes = num_classes
 
         self.downsample_factor: int = 8  # Factor of 8 bc we use 3 layers of max pooling. I.e. 2**3 = 8
