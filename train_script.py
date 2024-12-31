@@ -12,15 +12,12 @@ from src.convnext import convnext_single_block_hyperspectral, convnext_single_bl
     convnext_minimal_hyperspectral, convnext_minimal_hyperspectral_dropout, \
     convnext_minimal_hyperspectral_final_layer_dropout
 from src.minimal_cnn import min_cnn_dropout, min_cnn
-from src.model import DroughtCNN
+from src.model import ForestCNN
 from src.trainer import trainCNN
 from src.accuracy import get_Ytrue_YPredict
 from src.functions import *
 from src.data_loader import transforms_aug, data_loader
 import time
-# new labelled data cross checked
-#from src.resnet import resnet18
-
 
 def parse_cli_arguments():
     parser = argparse.ArgumentParser(description="Process data from input file and save to output file.")
@@ -31,7 +28,7 @@ def parse_cli_arguments():
     parser.add_argument("--input_channels", type=int, required=True)
     parser.add_argument("--num_classes", type=int, required=True)
     parser.add_argument("--epochs", type=int, required=True, default=100, help="20 50")
-    parser.add_argument("--model", type=str, required=False, default="DroughtCNN", help="conv_next_model min_cnn final_layer_dropout_conv_next_model")
+    parser.add_argument("--model", type=str, required=False, default="ForestCNN", help="conv_next_model min_cnn final_layer_dropout_conv_next_model")
     parser.add_argument("--pretrained_checkpoint", type=str, required=False, default=None, help="location of checkpoint- full path")
     parser.add_argument("--vars", type=str, required=False, default="vis-chm", help="vis-chm vis-chm-dtm")
 
@@ -49,9 +46,7 @@ def main():
     args = parse_cli_arguments()
     print(f"Running script with arguments: {args}")
 
-    # new labelled data cross checked
-    # train_folder = "/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/chm/train"
-    # test_folder = "/mmfs1/gscratch/stf/upanpra/AK_paper_data/16crops/forest_vs_nonforest/chm/test"
+    # train and test folder
     train_folder = args.train_folder
     test_folder = args.test_folder
     pretrained_checkpoint = args.pretrained_checkpoint
@@ -85,10 +80,10 @@ def main():
     BATCH_SIZE = 16           # Change to 16 or 32 The size of input data took for one iteration of an epoch
     LEARNING_RATE = 1e-3          # The speed of convergence
 
-    BASE_MODEL_OUTPUT_FOLDER = "/mmfs1/gscratch/stf/upanpra/2024_AK_CKPT" # For Hyak
+    BASE_MODEL_OUTPUT_FOLDER = "model/ckpt" # update it to the folder for saving model
 
     # Define model name
-    model_name = args.model #"DroughtCNN" #resnet18
+    model_name = args.model #"ForestCNN" #resnet18
 
     channel_indices = None  # Set to None to not select any channels
     if channel_indices is not None:
@@ -109,8 +104,7 @@ def main():
     else:
         train_loader, test_loader = multi_image_data_loader(train_folder, test_folder, INPUT_SIZE, BATCH_SIZE, mean, std)
 
-    all_models = {#"resnet18": partial(resnet18, input_channels=44),
-                "DroughtCNN": partial(DroughtCNN, input_size=[INPUT_CHANNELS] + INPUT_SIZE, num_classes=NUM_CLASSES),
+    all_models = {"ForestCNN": partial(ForestCNN, input_size=[INPUT_CHANNELS] + INPUT_SIZE, num_classes=NUM_CLASSES),
                 "min_cnn": partial(min_cnn, num_classes=NUM_CLASSES, input_channels=INPUT_CHANNELS),
                 "min_cnn_dropout": partial(min_cnn_dropout, num_classes=NUM_CLASSES, input_channels=INPUT_CHANNELS),
                 "conv_next_single_block_model": partial(convnext_single_block_hyperspectral, num_classes=NUM_CLASSES, input_channels=INPUT_CHANNELS),
@@ -120,7 +114,7 @@ def main():
                 "final_layer_dropout_conv_next_model": partial(convnext_minimal_hyperspectral_final_layer_dropout, num_classes=NUM_CLASSES, input_channels=INPUT_CHANNELS)
                   }
 
-    # calling cnn functions either resnet or droughtCNN
+    # calling cnn functions 
     net = all_models[model_name]()
     print(net)
 
